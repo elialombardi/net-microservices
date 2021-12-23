@@ -1,21 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elial\\Documents\\projects\\net-microservices\\TodoService\\TodoService.csproj": {}
+    "D:\\projects\\net-microservices\\TodoService\\TodoService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elial\\Documents\\projects\\net-microservices\\TodoService\\TodoService.csproj": {
+    "D:\\projects\\net-microservices\\TodoService\\TodoService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elial\\Documents\\projects\\net-microservices\\TodoService\\TodoService.csproj",
+        "projectUniqueName": "D:\\projects\\net-microservices\\TodoService\\TodoService.csproj",
         "projectName": "TodoService",
-        "projectPath": "C:\\Users\\elial\\Documents\\projects\\net-microservices\\TodoService\\TodoService.csproj",
+        "projectPath": "D:\\projects\\net-microservices\\TodoService\\TodoService.csproj",
         "packagesPath": "C:\\Users\\elial\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elial\\Documents\\projects\\net-microservices\\TodoService\\obj\\",
+        "outputPath": "D:\\projects\\net-microservices\\TodoService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\elial\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -23,7 +25,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "F:\\Program Files\\DevExpress_19_2_10\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -56,6 +57,10 @@
               "target": "Package",
               "version": "[5.0.13, )"
             },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -75,24 +80,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.13, 5.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -101,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
