@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "afd696b4-7149-48a1-ad64-a8be6a9c154a": {
+      "ProjectGuid": "afd696b4-7149-48a1-ad64-a8be6a9c154a",
+      "DisplayName": "TodoService",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
