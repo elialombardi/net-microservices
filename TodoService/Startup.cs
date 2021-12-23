@@ -53,8 +53,6 @@ namespace TodoService
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoService v1"));
       }
 
-      app.UseHttpsRedirection();
-
       app.UseRouting();
 
       app.UseAuthorization();
