@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-depl
+  name: projects-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: todo-service
+      app: projects-service
   template:
     metadata:
       labels:
-        app: todo-service
+        app: projects-service
     spec:
       containers:
-        - name: todo-service
-          image: elialombardi/todo-service:latest
+        - name: projects-service
+          image: elialombardi/projectsservice:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: todo-clusterip-srv
+  name: projects-clusterip-srv
 spec:
-  type: ClusterIp
+  type: ClusterIP
   selector:
-    app: todo-service
+    app: projects-service
   ports:
-    - name: todo-service
+    - name: projects-service
       protocol: TCP
       port: 80
       targetPort: 80
