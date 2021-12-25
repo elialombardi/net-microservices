@@ -19,9 +19,12 @@ namespace TodoService
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment env;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            this.env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -30,8 +33,8 @@ namespace TodoService
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<TodoDbContext>(opt => opt.UseInMemoryDatabase("TodoDb"));
-            // services.AddDbContext<TodoDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("TodoDb")));
+            // services.AddDbContext<TodoDbContext>(opt => opt.UseInMemoryDatabase("TodoDb"));
+            services.AddDbContext<TodoDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("TodoDb")));
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -67,7 +70,7 @@ namespace TodoService
             });
 
             Task
-              .Run(async () => await PrepDb.PrepPopulation(app))
+              .Run(async () => await PrepDb.PrepPopulation(app, env.IsProduction()))
               .ConfigureAwait(false)
               .GetAwaiter()
               .GetResult();

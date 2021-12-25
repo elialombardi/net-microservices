@@ -1,0 +1,62 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_xerial-sample-database": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "SQLite - Chinook (Sample)",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "${application.path}/../samples/db/Chinook.sqlitedb",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"postgresql-template-1": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "PostgreSQL (Template)",
+			"save-password": false,
+			"template": true,
+			"read-only": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				}
+			}
+		},
+		"microsoft-17df0da1d17-17efd61f64ab5ad2": {
+			"provider": "sqlserver",
+			"driver": "microsoft",
+			"name": "SQL Server@host.docker.internal",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"host": "host.docker.internal",
+				"port": "1433",
+				"database": "master",
+				"url": "jdbc:sqlserver://;serverName=host.docker.internal;databaseName=master",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

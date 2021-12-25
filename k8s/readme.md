@@ -1,3 +1,6 @@
+docker build -t elialombardi/todo-service
+docker psuh elialombardi/todo-service
+
 kubectl version
 
 kubectl apply -f k8s/todo-depl.yaml
@@ -29,3 +32,5 @@ https://kubernetes.github.io/ingress-nginx/deploy/#quick-start
 3. storage class
 
 kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+
+kubectl rollout restart deployment todo-dep
