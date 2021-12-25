@@ -32,5 +32,9 @@ https://kubernetes.github.io/ingress-nginx/deploy/#quick-start
 3. storage class
 
 kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+kubectl create secret generic mongodb --from-literal=MONGO_INITDB_ROOT_PASSWORD="pa55w0rd!"
 
 kubectl rollout restart deployment todo-dep
+
+docker run --name cloudbeaver --rm -ti -p 8080:8978 --network my-net -d dbeaver/cloudbeaver:latest
+docker run --name mongo-express --rm -ti --network my-net -e ME_CONFIG_MONGODB_ADMINUSERNAME=root -e ME_CONFIG_MONGODB_ADMINPASSWORD=pa55w0rd! -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -p 8081:8081 mongo-express
