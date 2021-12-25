@@ -10,6 +10,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 kubectl apply -f k8s/ingress-srv.yaml
 kubectl apply -f k8s/local-pvc.yaml
 kubectl apply -f k8s/mssql-todo-depl.yaml
+kubectl apply -f k8s/mongodb-pvc.yaml
+kubectl apply -f k8s/mongodb-projects-depl
 
 kubectl get deployments
 kubectl get pods
