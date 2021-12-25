@@ -3,15 +3,19 @@ docker psuh elialombardi/todo-service
 
 kubectl version
 
-kubectl apply -f k8s/todo-depl.yaml
-kubectl apply -f k8s/todo-np-srv.yaml
-kubectl apply -f k8s/projects-depl.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f k8s/todo-depl.yaml \
+ -f k8s/todo-np-srv.yaml \
+ -f k8s/projects-depl.yaml \
+ -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+
+
 kubectl apply -f k8s/ingress-srv.yaml
-kubectl apply -f k8s/local-pvc.yaml
-kubectl apply -f k8s/mssql-todo-depl.yaml
-kubectl apply -f k8s/mongodb-pvc.yaml
-kubectl apply -f k8s/mongodb-projects-depl
+
+kubectl apply -f k8s/local-pvc.yaml \
+ -f k8s/mssql-todo-depl.yaml \
+ -f k8s/mongodb-pvc.yaml \
+ -f k8s/mongodb-projects-depl.yaml
+ -f k8s/rbmq-depl.yaml
 
 kubectl get deployments
 kubectl get pods
