@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using TodoService.AsyncDataServices;
 using TodoService.Data;
 using TodoServuce.SyncDataServices.Http;
 
@@ -40,6 +41,7 @@ namespace TodoService
 
             services.AddHttpClient<IHttpProjectsDataClient, HttpProjectsDataClient>();
 
+            services.AddSingleton<IMessageBusClient, MessageBusClient>();
             services.AddScoped<ITodoItemRepo, TodoItemRepo>();
 
             services.AddControllers();

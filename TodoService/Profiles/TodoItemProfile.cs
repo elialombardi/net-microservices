@@ -4,12 +4,13 @@ using TodoService.Models;
 
 namespace TodoService.Profiles
 {
-  public class TodoItemProfile : Profile
-  {
-    public TodoItemProfile()
+    public class TodoItemProfile : Profile
     {
-      CreateMap<TodoItem, TodoItemRead>();
-      CreateMap<TodoItemCreate, TodoItem>();
+        public TodoItemProfile()
+        {
+            CreateMap<TodoItem, TodoItemRead>();
+            CreateMap<TodoItemCreate, TodoItem>();
+            CreateMap<TodoItemRead, TodoItemPublished>();
+        }
     }
-  }
 }

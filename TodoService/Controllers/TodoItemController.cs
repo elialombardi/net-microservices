@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TodoService.AsyncDataServices;
 using TodoService.Data;
 using TodoService.Dtos;
 using TodoService.Models;
@@ -17,12 +18,17 @@ namespace TodoService.Controllers
         private readonly ITodoItemRepo todoItemRepo;
         private readonly IMapper mapper;
         private readonly IHttpProjectsDataClient httpProjectsDataClient;
+        private readonly IMessageBusClient messageBusClient;
 
-        public TodoItemController(ITodoItemRepo todoItemRepo, IMapper mapper, IHttpProjectsDataClient httpProjectsDataClient)
+        public TodoItemController(ITodoItemRepo todoItemRepo,
+                                  IMapper mapper,
+                                  IHttpProjectsDataClient httpProjectsDataClient,
+                                  IMessageBusClient messageBusClient)
         {
             this.todoItemRepo = todoItemRepo;
             this.mapper = mapper;
             this.httpProjectsDataClient = httpProjectsDataClient;
+            this.messageBusClient = messageBusClient;
         }
 
         [HttpGet]
@@ -52,6 +58,18 @@ namespace TodoService.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine("SendItemToProject Error", ex);
+            }
+
+            try
+            {
+                var publishedDto = mapper.Map<TodoItemPublished>(itemRead);
+                publishedDto.Event = "TodoItem_Published";
+
+                messageBusClient.PublishTodoItem(publishedDto);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine($"Couldn't send published todo item {ex.Message}");
             }
 
             return CreatedAtRoute(nameof(GetById), new { Id = item.Id }, itemRead);
