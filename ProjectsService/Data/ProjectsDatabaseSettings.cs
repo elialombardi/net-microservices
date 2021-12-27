@@ -1,4 +1,4 @@
-namespace ProjectsService.Models
+namespace ProjectsService.Data
 {
     public class ProjectsDatabaseSettings : IProjectsDatabaseSettings
     {

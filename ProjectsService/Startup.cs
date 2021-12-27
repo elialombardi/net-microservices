@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using ProjectService.EventProcessing;
+using ProjectsService.AsyncDataServices;
 using ProjectsService.Models;
 using ProjectsService.Repos;
 
@@ -38,6 +40,8 @@ namespace ProjectsService
                 sp.GetRequiredService<IOptions<ProjectsDatabaseSettings>>().Value);
 
 
+            services.AddHostedService<MessageBusSubscriber>();
+            services.AddSingleton<IEventProcessor, EventProcessor>();
             services.AddSingleton<IProjectsRepo, ProjectsRepo>();
 
 

@@ -4,12 +4,15 @@ using ProjectsService.Models;
 
 namespace ProjectsService.Profiles
 {
-  public class ProjectsProfile : Profile
-  {
-    public ProjectsProfile()
+    public class ProjectsProfile : Profile
     {
-      CreateMap<Project, ProjectRead>();
-      CreateMap<ProjectCreate, Project>();
+        public ProjectsProfile()
+        {
+            CreateMap<Project, ProjectRead>();
+            CreateMap<ProjectCreate, Project>();
+            CreateMap<TodoItem, TodoItemRead>();
+            CreateMap<TodoItemPublished, TodoItem>()
+            .ForMember(dest => dest.ExternalID, opt => opt.MapFrom(src => src.Id));
+        }
     }
-  }
 }
